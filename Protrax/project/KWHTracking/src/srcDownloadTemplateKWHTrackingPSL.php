@@ -1,0 +1,102 @@
+<?php 
+session_start();
+require_once("../../../ConfigDB.php");
+require_once("../../../src/Modules/ModuleLogin.php");
+require_once("../Modules/ModuleKWHTracking.php");
+date_default_timezone_set("Asia/Jakarta");
+$DateNow = date("m/d/Y");
+$Yesterday = date("d/m/Y",strtotime("-1 day"));
+$TimeNow = date("H:i:s");
+$ValKWH = "0.12345";
+ 
+if(!session_is_registered("UIDProTrax"))
+{
+    ?>
+    <script language="javascript">
+        window.location.replace("https://protrax.formulatrix.com/");
+    </script>
+    <?php
+    exit();
+}
+# data session
+$FullName = strtoupper(base64_decode($_SESSION['FullNameUserProTrax']));
+$UserNameSession = base64_decode(base64_decode($_SESSION['UIDProTrax']));
+# data protrax user
+$BolProdAcc = false;
+$QDataUserWebtrax = GET_DATA_LOGIN_BY_USERNAME_ONLY($UserNameSession,$linkHRISWebTrax);
+if(mssql_num_rows($QDataUserWebtrax) > 0)
+{
+    $RDataUserWebtrax = mssql_fetch_assoc($QDataUserWebtrax);
+    $TypeUser = trim($RDataUserWebtrax['TypeUser']);
+    $_SESSION['LoginMode'] = base64_encode($TypeUser);
+    $AccessLogin = base64_decode($_SESSION['LoginMode']);   
+}
+else # kondisi tidak terdaftar di protrax user & akan di set sebagai employee dan hak akses ke bagian produksi saja
+{
+    $_SESSION['LoginMode'] = base64_encode("Employee");
+    $AccessLogin = base64_decode($_SESSION['LoginMode']);
+    $BolProdAcc = true;
+}
+
+if((trim($AccessLogin) != "Manager"))
+{
+    if($RDataUserWebtrax['MnAdmin'] != "1")  
+    {
+        ?>
+        <script language="javascript">
+            window.location.replace("https://protrax.formulatrix.com/");
+        </script>
+        <?php
+        exit();
+    }
+}
+else
+{
+    if($RDataUserWebtrax['MnSecurity'] != "1")
+    {
+        ?>
+        <script language="javascript">
+            window.location.replace("https://protrax.formulatrix.com/");
+        </script>
+        <?php
+        exit();
+    }
+}
+
+if($_SERVER['REQUEST_METHOD'] == "GET")
+{
+    $ValString = htmlspecialchars(trim($_GET['accs']), ENT_QUOTES, "UTF-8");
+    if(trim($ValString) == "1")
+    {
+        # download template
+        $filename = "TemplateImportKWHTrackingPSL.csv";
+        header('Content-type: text/csv');
+        header('Content-Disposition: attachment; filename="'.$filename.'"');
+        header('Pragma: no-cache');
+        header('Expires: 0');
+        $file = fopen('php://output', 'w');
+        fputcsv($file, array('DateLog','KWH'));
+        $ArrayTemp = array($Yesterday,$ValKWH);
+        fputcsv($file,$ArrayTemp);
+        fclose($file);
+        exit();
+    }
+    else
+    {
+        # download kosong
+        $filename = "TemplateImportKWHTrackingPSL.csv";
+        header('Content-type: text/csv');
+        header('Content-Disposition: attachment; filename="'.$filename.'"');
+        header('Pragma: no-cache');
+        header('Expires: 0');
+        $file = fopen('php://output', 'w');
+        fputcsv($file, array(''));
+        fclose($file);
+        exit();
+    }
+}
+else
+{
+    echo "";    
+}
+?>
