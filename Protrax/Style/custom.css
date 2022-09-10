@@ -1,0 +1,227 @@
+.body-content {
+    background-color: #fcfcf9;
+    font-size: 14px;
+}
+.bg-main {
+    background-color: #1D2228;
+    border-color: transparent;
+    margin-top: -5px;
+}
+.card-login {
+    background-color: #1A2238 !important;
+}
+.load_img {
+    height: 13px;
+}
+img#img-logo-form {
+    margin-left: 3px !important;
+}
+@media (max-width: 767px) {
+    img#img-logo {
+        max-width: 150px;
+        background-color: transparent;
+    }
+    .navbar-inverse .navbar-nav .open .dropdown-menu > li > a {
+        color: #FFFFFF;
+    }
+    .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:hover,
+    .navbar-inverse .navbar-nav .open .dropdown-menu > li > a:focus {
+        color: #FFFFFF;
+        background-color: #000000;
+    }
+    .sidenav {
+        padding-top: 15px;
+    }
+    .sidenav a {
+        font-size: 12px;
+    }
+    p.navbar-text.text-left.white-navbar {
+        margin-left: 15px;
+    }
+    #ContentPage {
+        padding-top: 70px;
+    }
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+    img#img-logo {
+        max-width: 200px;
+        background-color: transparent;
+    }
+    .navbar-text {
+        padding-left: 15px;
+        color: #FFFFFF;
+    }
+    p.navbar-text.text-left.white-navbar {
+        margin-left: 15px;
+    }
+    #ContentPage {
+        padding-top: 70px;
+    }
+}
+@media (min-width: 1025px) {
+    img#img-logo {
+        max-width: 200px;
+        background-color: transparent;
+        margin-left: 20px;
+    }
+    #ContentPage {
+        padding-top: 70px;
+    }
+}
+.card-form {
+    border-radius: 16px;   
+}
+#NavAltMenuList a, span {
+    color: #FFF;
+}
+.navbar-custom {
+    padding-top:0;
+    background-color: #1A2238 !important;
+    opacity: 0.75;
+    border-bottom: solid #316d60 3px;
+}
+.navbar-navigation-custom {
+    border: solid 1px #F0F0F0;
+    margin-top:5px;
+}
+.container-navbar {
+    margin-top:5px;
+}
+.sideTitle {
+    padding: 10px 5px 5px 0px;
+    color: #000;
+    display: block;
+    transition: 0.1s;
+    font-weight: bold;
+}
+.sideTitleLv1 {
+    padding: 0px 5px 5px 10px;
+    color: #000;
+    display: block;
+    transition: 0.1s;
+    font-weight: bold;
+}
+.sideTitleLv2 {
+    padding: 0px 5px 5px 20px;
+    color: #000;
+    display: block;
+    transition: 0.1s;
+}
+.sidenav a {
+    padding: 2px 8px 2px 25px;
+    text-decoration: none;
+    font-size: 12px;
+    color: #FFFFFF;
+    display: block;
+    transition: 0.1s;
+}
+.sidenav a:hover {
+    color: #000000;
+    background-color: #FCB040;
+}
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+    cursor: pointer;
+    color: #4D4D4E;
+}
+.sidenav #closebtn a:hover {
+    color: #FFFFFF;
+    background-color: transparent;
+}
+.sidenav p {
+    padding: 5px 5px 5px 20px;
+    color: #FFFFFF;
+    display: block;
+    transition: 0.1s;
+}
+#header-offcanvas {
+    background-color: #6b85ce;
+    color: #FFFFFF;
+}
+#header-offcanvas btn-close text-reset {
+    color: #FFFFFF !important;
+}
+#menu-offcanvas {
+    margin-top: 0px;
+    background-color: #FFFFFF;
+    font-size: 13px;
+}
+#menu-offcanvas a {
+    display: block;
+    text-decoration: none;
+    color: #4D4D4E;
+}
+#menu-offcanvas a:hover {
+    background-color: #1A2238;
+    color: #FFFFFF;
+}
+#NavMnBtn {
+    color: #FFFFFF;
+    background-color: #535968;
+}
+.dropdown-divider-custom {
+    color: #F0F0F0;
+}
+#CanvasSide {
+    max-width: 320px;
+}
+.breadcrumb-detail {
+    background-color:transparent;
+    border-bottom: solid 1px #F0F0F0;
+    padding-left: 0px;
+}
+.breadcrumb-detail a {
+    text-decoration: none !important;
+}
+.theadCustom,
+.PointerListQuoteSelected,
+.PointerListQuoteOpenSelected,
+.PointerCCTVCategorySelected,
+.PointerListSelected {
+    color:#000000;
+    background-color:#F0F0F0;
+}
+.div-content-top {
+    margin-top:-20px;
+}
+.col-btn {
+    padding: 5px;
+}
+.btn-bigger {
+    min-height: 100px;
+    font-size: 40px;
+}
+.btn:focus,.btn:active {
+    outline: none !important;
+}
+.TitleGroup {
+    border-bottom: solid 1px #F0F0F0;
+    padding-bottom: 5px;
+}
+.DownloadTemplate,.PointerListQuote,.PointerListQuoteOpen,.PointerList{
+    cursor: pointer;
+    color: #337AB7;
+}
+.theadCustom tr th {
+    text-align: center;
+    vertical-align: middle;
+    padding: 5px;
+    position: relative;
+}
+.trowCustom {
+    text-align: center !important;
+    vertical-align: middle !important;
+    padding: 5px !important;
+    position: relative !important;
+}
+.margin-form {
+    margin-left: auto;
+    margin-right: auto;
+}
+.InvisibleText {
+    color: transparent;
+}
