@@ -1,0 +1,197 @@
+body {
+    font-size: 12px;
+}
+.navbar-dark{
+    background-color: #3B3B3D;
+    /* background-color:#574C53; */
+    border-color: transparent;
+    opacity: 0.98;
+    background-image: url("bg.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+.navbar-dark a{
+    color: #FFFFFF;
+}
+.form-login {
+    max-width:300px;
+    margin: 0 auto;
+    margin-top: 5%;
+}
+.legend-custom {
+    text-align: center;
+}
+.load_img {
+    width: 12px;
+    height: 12px;
+}
+.load_img img {
+    margin: 0 auto;
+    
+}
+#LoadingLogin, #LoadingCheck {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.navbar-orange a{
+    color: #5F564B;
+    font-weight: bolder;
+    
+}
+.navbar-inverse .navbar-nav > li > a{
+    /* color: #5F564B; */
+    color: #FFFFFF;
+    font-size: 14px;
+}
+.navbar-inverse .navbar-nav > li > a:hover{
+    /* font-weight: bold; */
+    background-color: #58524c;
+}
+#bar-name{
+    margin-top:18px;   
+    font-weight:bolder;
+    color: #FFFFFF;
+}
+.breadcrumb-detail {
+    background-color:transparent;
+    border-bottom: solid 1px #F0F0F0;
+    padding-left: 0px;
+}
+#TableDataMappingSubstation, #TableIdentitasKaryawan, #TableIdentitasProduk {
+    border-bottom: solid 1px #d3d3d3;
+}
+#TableDataMappingSubstation td, #TableIdentitasKaryawan, #TableIdentitasProduk td {
+    font-weight: bold;
+}
+#TableDataMappingSubstation td:first-child, #TableIdentitasKaryawan td:first-child, #TableIdentitasProduk td:first-child {
+    width:110px;
+}
+#TableDataMappingSubstation td:nth-child(2), #TableIdentitasKaryawan td:nth-child(2), #TableIdentitasProduk td:nth-child(2) {
+    width:10px;
+}
+#table_summary{
+    width:70%;
+}
+.TitleGroup {
+    border-bottom: solid 1px #F0F0F0;
+    padding-bottom: 5px;
+}
+.div-content-top {
+    margin-top:-20px;
+}
+.text-input-black, .text-input-black:read-only, #InputID:disabled {
+    background-color:#000000;
+    color:#FFFFFF;
+}
+textarea {
+    resize: none;
+}
+.btn-light {
+    background-color: #b2ecba;
+}
+.btn-dark,.btn-dark:hover,.btn-dark:visited {
+    background-color: #3B3B3D;
+    border-color: #3B3B3D;
+    color: #FFFFFF;
+}
+.btn-dark:focus, .btn-dark:active {
+    background-color: #3B3B3D;
+    border-color: transparent;
+    color: #FFFFFF;
+}
+.btn-dark:disabled,.btn-dark:disabled:hover {
+    background-color: #3B3B3D;
+    border-color: #3B3B3D;
+    color: #FFFFFF;
+}
+.sidenav{
+    background-color: #3B3B3D;
+    opacity: 0.98;
+    font-size: 12px;
+}
+.sidenav a:hover{
+    color: #FFFFFF;
+    background-color: #58524c;
+}
+.btn-bigger {
+    min-height: 80px;
+    font-size: 40px;
+}
+.col-btn {
+    padding: 5px;
+}
+.btn:focus,.btn:active {
+    outline: none !important;
+}
+.sideTitle{
+    padding: 10px 5px 5px 20px;
+    color: #FFFFFF;
+    display: block;
+    transition: 0.1s;
+}
+.sideTitleLv1{
+    padding: 0px 5px 5px 30px;
+    color: #FFFFFF;
+    display: block;
+    transition: 0.1s;
+}
+.sideTitleLv2{
+    padding: 0px 5px 5px 20px;
+    color: #FFFFFF;
+    display: block;
+    transition: 0.1s;
+}
+#closebtn{
+    color: #FFFFFF;
+}
+.theadCustom,.PointerListQuoteSelected,.PointerListQuoteOpenSelected,.PointerCCTVCategorySelected,.PointerListSelected{
+    color:#000000;
+    background-color:#F0F0F0;
+}
+.DownloadTemplate,.PointerListQuote,.PointerListQuoteOpen,.PointerList,.Pointer,.PointerListPM,.PointerListTT,.PointerListProject,.PointerListEmployee,.FloatTT,.PointerListSummary{
+    cursor: pointer;
+    color: #337AB7;
+}
+.InvisibleText{
+    color: transparent;
+}
+.container-home-webtrax{
+    padding-bottom: 50px;
+    padding-top:5px;
+    max-width: 97% !important;
+}
+.RowCostAllocation,.RowCostAllocationOpen{
+    cursor: pointer;
+}
+
+.RowDivision,.RowDivisionOpen{
+    cursor: pointer;
+}
+
+.RowDivisionSelected{
+    background-color:#F0F0F0;
+}
+
+.RowCostAllocationSelected{
+    background-color:#F0F0F0;
+}
+.theadCustom tr th {
+    text-align: center;
+    vertical-align: middle;
+    padding: 5px;
+    /* position: sticky;
+    top: 0; */
+}
+.trowCustom {
+    text-align: center !important;
+    vertical-align: middle !important;
+    padding: 5px !important;
+    position: relative !important;
+}
+.infoLogin {
+    font-weight:bold;
+    font-weight:bold;
+    color:#ff0000;
+}
+.card {padding: 10px; box-shadow: 0px 1px 3px #888888;background:#FFFFFF;width: 80%;}
