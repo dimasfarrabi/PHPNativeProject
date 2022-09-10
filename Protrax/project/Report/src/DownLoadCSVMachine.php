@@ -1,0 +1,106 @@
+<?php
+session_start();
+require_once("../../../ConfigDB.php");
+require_once("../../../src/Modules/ModuleLogin.php");
+require_once("../Modules/ModuleReport.php");
+
+date_default_timezone_set("Asia/Jakarta");
+$Time = date("Y-m-d H:i:s");
+/* 
+if(!session_is_registered("UIDProTrax"))
+{
+    ?>
+    <script language="javascript">
+        window.location.replace("https://protrax.formulatrix.com/");
+    </script>
+    <?php
+    exit();
+}*/
+if($_SERVER['REQUEST_METHOD'] == "GET")
+{
+    $ValStartDate = htmlspecialchars(trim($_GET['StartDate']), ENT_QUOTES, "UTF-8");
+    $ValEndDate = htmlspecialchars(trim($_GET['EndDate']), ENT_QUOTES, "UTF-8");
+    $ValCategory = htmlspecialchars(trim($_GET['Category']), ENT_QUOTES, "UTF-8");
+    $ValKeywords = htmlspecialchars(trim($_GET['Keywords']), ENT_QUOTES, "UTF-8");
+    $ValUsedDate = htmlspecialchars(trim($_GET['Used']), ENT_QUOTES, "UTF-8");
+    $ValUsedOpen = htmlspecialchars(trim($_GET['Open']), ENT_QUOTES, "UTF-8");
+    $ValClosedtime = htmlspecialchars(trim($_GET['Half']), ENT_QUOTES, "UTF-8");
+
+    // echo $ValStartDate."<br>".$ValEndDate."<br>".$ValCategory."<br>".$ValKeywords."<br>".$ValUsedDate."<br>".$ValClosedtime."<br>".$ValUsedOpen;
+
+
+    date_default_timezone_set("Asia/Jakarta");
+    $TimeNow = date('Y_m_d_H_i_s');
+    $filename = "DataMachineTrack[".$ValStartDate."-".$ValEndDate."]_$TimeNow.csv";
+    header('Content-type: text/csv');
+    header('Content-Disposition: attachment; filename="'.$filename.'"');
+    header('Pragma: no-cache');
+    header('Expires: 0');
+    $file = fopen('php://output', 'w');
+    fputcsv($file, array('DateCreated',
+    'MachineName',
+    'Operator',
+    'Product',
+    'Barcode_ID',
+    'OrderType',
+    'WO',
+    'PartNo',
+    'ExpenseAllocation',
+    'WOParent',
+    'Quote',
+    'QuoteCategory',
+    'QtyParent',
+    'QtyQuote',
+    'Qty',
+    'StartTime',
+    'EndTime',
+    'Duration',
+    'Stabilize',
+    'FullStartTime',
+    'FullEndTime',
+    'DurationHours',
+    'Side',
+    'ShiftCode',
+    'WOMapping_ID',
+    'ClosedTime',
+    'LocationCode'));
+
+    $NoLoop = 1;
+    $QData = GET_DATA_MACHINE_TRACK_CUSTOM($ValStartDate,$ValEndDate,$ValCategory,$ValKeywords,$ValUsedDate,$ValUsedOpen,$ValClosedtime,$linkMACHWebTrax);
+    while($RData = sqlsrv_fetch_array($QData)){
+        $ArrayTemp = array(trim($RData['DateCreated']),
+        trim($RData['MachineName']),
+        trim($RData['Operator']),
+        trim($RData['Product']),
+        trim($RData['Barcode_ID']),
+        trim($RData['OrderType']),
+        trim($RData['WO']),
+        trim($RData['PartNo']),
+        trim($RData['ExpenseAllocation']),
+        trim($RData['WOParent']),
+        trim($RData['Quote']),
+        trim($RData['QuoteCategory']),
+        trim($RData['QtyParent']),
+        trim($RData['QtyQuote']),
+        trim($RData['Qty']),
+        trim($RData['StartTime']),
+        trim($RData['EndTime']),
+        trim($RData['Duration']),
+        trim($RData['Stabilize']),
+        trim($RData['FullStartTime']),
+        trim($RData['FullEndTime']),
+        trim($RData['DurationHours']),
+        trim($RData['Side']),
+        trim($RData['ShiftCode']),
+        trim($RData['WOMapping_ID']),
+        trim($RData['ClosedTime']),
+        trim($RData['LocationCode'])
+        );
+        fputcsv($file,$ArrayTemp);
+        $NoLoop++;
+    }
+    fclose($file);
+    exit();
+}
+
+?>
