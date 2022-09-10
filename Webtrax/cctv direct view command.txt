@@ -1,0 +1,1 @@
+ffmpeg -v info -i rtsp://admin:4mulatrixS3@10.250.1.237:554/Streaming/Channels/202 -c:v copy -c:a copy -bufsize 1835k -pix_fmt yuv420p -flags -global_header -hls_time 2 -hls_list_size 6 -hls_wrap 10 -start_number 1 C:\wamp\www\fmlx\webtrax\cam\cam2\cam1.m3u8
